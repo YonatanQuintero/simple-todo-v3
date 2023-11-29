@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 
 interface TodoListItemProps {
-  id: string
+  id: number
   value: string
 }
 

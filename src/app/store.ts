@@ -1,9 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit"
 import themeReducer from "../features/theme-slice"
+import { todoApi } from "../features/todo-api"
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
+    [todoApi.reducerPath]: todoApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware().concat(todoApi.middleware)
   },
 })
 
