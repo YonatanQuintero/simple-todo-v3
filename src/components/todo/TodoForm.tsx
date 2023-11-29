@@ -37,8 +37,8 @@ const TodoForm: React.FC = () => {
   }
 
   return (
-    <div className="input-group mb-3">
-      <form>
+    <form>
+      <div className="input-group mb-3">
         <input
           type="text"
           value={value}
@@ -53,8 +53,8 @@ const TodoForm: React.FC = () => {
         <button className="btn btn-outline-info" type="button" id="add-todo" onClick={addHandler}>
           Add
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   )
 }
 

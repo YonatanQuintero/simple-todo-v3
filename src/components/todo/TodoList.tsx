@@ -1,11 +1,14 @@
-const TodoTitle = () => {
-    return (
-        <div className="bg-info py-3">
-            <h1 className="text-center display-4 fw-bold text-white">
-                Simple Todo List V3
-            </h1>
-        </div>
-    )
+import TodoListItem from "./TodoListItem"
+
+const TodoList = () => {
+  const todos: any = []
+  return (
+    <ul className="list-group">
+      {todos.map((todo: any) => (
+        <TodoListItem key={todo.id} id={todo.id} value={todo.value} />
+      ))}
+    </ul>
+  )
 }
 
-export default TodoTitle
+export default TodoList
