@@ -1,4 +1,4 @@
-// import ThemeToggle from "../theme/ThemeToggle"
+import ThemeToggle from "../theme/ThemeToggle"
 
 const TodoFooter = () => {
   return (
@@ -10,7 +10,7 @@ const TodoFooter = () => {
             <p className="m-0 text-center text-muted">All rights reserved.</p>
             <p className="m-0 text-center text-muted">Development by Yonatan A Quintero R</p>
           </div>
-          <div className="col-12 border-top pt-3">{/* <ThemeToggle /> */}</div>
+          <div className="col-12 border-top pt-3">{<ThemeToggle />}</div>
         </div>
       </div>
     </footer>

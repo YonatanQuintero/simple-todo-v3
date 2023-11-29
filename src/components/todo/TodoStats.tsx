@@ -14,8 +14,8 @@ const TodoStats = () => {
         <div className="col-sm-8 col-md-6 col-lg-4 text-center">
           <div className="row">
             {items.map((item, index) => (
-              <div className="col">
-                <TodoStatItem key={index} value={item.value} title={item.title} />
+              <div key={index} className="col">
+                <TodoStatItem value={item.value} title={item.title} />
               </div>
             ))}
           </div>
