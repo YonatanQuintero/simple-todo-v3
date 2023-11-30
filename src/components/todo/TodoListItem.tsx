@@ -1,5 +1,5 @@
-import React, { useRef } from "react"
-import { useUpdateTodoMutation } from "../../api/todo-api"
+import React from "react"
+import { useUpdateTodoMutation, useDeleteTodoMutation } from "../../api/todo-api"
 
 type TodoListItemProps = {
   id: number
@@ -9,7 +9,7 @@ type TodoListItemProps = {
 
 const TodoListItem: React.FC<TodoListItemProps> = ({ id, value, completed }) => {
   const [updateTodo] = useUpdateTodoMutation()
-  const labelRef = useRef<HTMLLabelElement>(null)
+  const [deleteTodo] = useDeleteTodoMutation()
   const inputId = `todo-${id}`
 
   const updateTodoHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,11 +18,10 @@ const TodoListItem: React.FC<TodoListItemProps> = ({ id, value, completed }) => 
       value,
       completed: event.target.checked,
     })
-    // labelRef.current!.classList.toggle("text-decoration-line-through")
   }
 
   const removeTodoHandler = () => {
-    // removeTodo(id)
+    deleteTodo(id)
   }
 
   return (
@@ -36,11 +35,7 @@ const TodoListItem: React.FC<TodoListItemProps> = ({ id, value, completed }) => 
             onChange={updateTodoHandler}
             checked={completed}
           />
-          <label
-            className={`form-check-label ${completed ? "text-decoration-line-through" : ""}`}
-            htmlFor={inputId}
-            ref={labelRef}
-          >
+          <label className={`form-check-label ${completed ? "text-decoration-line-through" : ""}`} htmlFor={inputId}>
             {value}
           </label>
         </div>
