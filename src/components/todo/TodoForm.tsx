@@ -1,56 +1,42 @@
 import React, { useState, useRef, useEffect } from "react"
-
-interface TodoItem {
-  value: string
-  isCompleted: boolean
-}
+import { useCreateTodoMutation } from "../../api/todo-api"
 
 const TodoForm: React.FC = () => {
+  const [createTodo] = useCreateTodoMutation()
   const inputRef = useRef<HTMLInputElement>(null)
-  const [value, setValue] = useState<string>("")
   const [isCompleted, setIsCompleted] = useState<boolean>(false)
-
-  const addTodo = (inputValue: string): void => {
-    console.log(inputValue)
-  }
 
   useEffect(() => {
     if (isCompleted) {
       inputRef.current!.focus()
-      setValue("")
+      inputRef.current!.value = ""
       setIsCompleted(false)
     }
   }, [isCompleted])
 
-  const addHandler = (): void => {
-    if (value.length < 1) {
-      alert("Please enter a value")
-      return
-    }
-
-    addTodo(value)
+  const addHandler = (event: React.ChangeEvent<HTMLFormElement>): void => {
+    event.preventDefault()
+    createTodo({
+      value: inputRef.current?.value || "",
+      completed: false,
+    })
     setIsCompleted(true)
   }
 
-  const valueHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setValue(event.target.value)
-  }
-
   return (
-    <form>
+    <form onSubmit={addHandler}>
       <div className="input-group mb-3">
         <input
           type="text"
-          value={value}
-          onChange={valueHandler}
           ref={inputRef}
           className="form-control"
           autoFocus
+          required
           placeholder="What do you need to do?"
           aria-label="What do you need to do?"
           aria-describedby="add-todo"
         />
-        <button className="btn btn-outline-info" type="button" id="add-todo" onClick={addHandler}>
+        <button type="submit" className="btn btn-outline-info" id="add-todo">
           Add
         </button>
       </div>

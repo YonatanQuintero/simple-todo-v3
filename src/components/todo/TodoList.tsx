@@ -1,5 +1,5 @@
 import TodoListItem from "./TodoListItem"
-import { useGetTodosQuery } from "../../features/todo-api"
+import { useGetTodosQuery } from "../../api/todo-api"
 
 const TodoList = () => {
   const { data = [] } = useGetTodosQuery()

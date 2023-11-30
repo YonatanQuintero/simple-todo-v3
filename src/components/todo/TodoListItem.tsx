@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 
-interface TodoListItemProps {
+type TodoListItemProps = {
   id: number
   value: string
 }
