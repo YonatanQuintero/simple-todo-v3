@@ -3,31 +3,31 @@
     {
       "id": 1,
       "value": "Task 1",
-      "completed": false
+      "completed": true
     },
     {
       "id": 2,
       "value": "Task 2",
-      "completed": false
+      "completed": true
     },
     {
       "id": 3,
       "value": "Task 3",
-      "completed": false
+      "completed": true
     },
     {
       "id": 4,
       "value": "Task 4",
-      "completed": false
+      "completed": true
     },
     {
       "value": "Task 5",
-      "completed": false,
+      "completed": true,
       "id": 5
     },
     {
       "value": "Task 6",
-      "completed": false,
+      "completed": true,
       "id": 6
     },
     {
@@ -37,17 +37,17 @@
     },
     {
       "value": "Task 8",
-      "completed": false,
+      "completed": true,
       "id": 8
     },
     {
       "value": "Task 9",
-      "completed": false,
+      "completed": true,
       "id": 9
     },
     {
       "value": "Task 10",
-      "completed": false,
+      "completed": true,
       "id": 10
     },
     {
@@ -62,7 +62,7 @@
     },
     {
       "value": "Task 13",
-      "completed": false,
+      "completed": true,
       "id": 13
     },
     {
@@ -127,7 +127,7 @@
     },
     {
       "value": "Task 23",
-      "completed": false,
+      "completed": true,
       "id": 26
     }
   ]
