@@ -1,10 +1,26 @@
+import React from "react"
+import { useGetTodosQuery } from "../../api/todo-api"
 import TodoStatItem from "./TodoStatItem"
 
-const TodoStats = () => {
+const TodoStats: React.FC = () => {
+  const { data = [] } = useGetTodosQuery()
+  const total = data.length
+  const pending = data.filter((todo) => !todo.completed).length
+  const completed = total - pending
+
   const items = [
-    { value: 0, title: "Completed" },
-    { value: 0, title: "In Progress" },
-    { value: 0, title: "Pending" },
+    {
+      title: "Pending",
+      value: pending,
+    },
+    {
+      title: "Completed",
+      value: completed,
+    },
+    {
+      title: "Total",
+      value: total,
+    },
   ]
 
   return (

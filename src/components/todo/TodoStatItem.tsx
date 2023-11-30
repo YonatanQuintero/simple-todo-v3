@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-interface TodoStatItemProps {
-  value: number;
-  title: string;
+type TodoStatItemProps = {
+  value: number
+  title: string
 }
 
 const TodoStatItem: React.FC<TodoStatItemProps> = ({ value, title }) => {
