@@ -2,7 +2,7 @@ import TodoTitle from "./TodoTitle"
 import TodoStats from "./TodoStats"
 import TodoForm from "./TodoForm"
 import TodoList from "./TodoList"
-import TodoClearDone from "./TodoClearDone"
+import TodoDeleteCompleted from "./TodoDeleteCompleted"
 import TodoFooter from "./TodoFooter"
 
 const TodoIndex = () => {
@@ -20,7 +20,7 @@ const TodoIndex = () => {
             <TodoForm />
             <TodoList />
             <div className="text-end mt-3">
-              <TodoClearDone />
+              <TodoDeleteCompleted />
             </div>
           </div>
         </div>
