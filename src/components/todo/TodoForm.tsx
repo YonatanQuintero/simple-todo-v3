@@ -1,11 +1,11 @@
-import React, { useRef } from "react"
+import { useRef, ChangeEvent, FC } from "react"
 import { useCreateTodoMutation } from "../../api/todo-api"
 
-const TodoForm: React.FC = () => {
+const TodoForm: FC = () => {
   const [createTodo] = useCreateTodoMutation()
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const addHandler = (event: React.ChangeEvent<HTMLFormElement>): void => {
+  const addHandler = (event: ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault()
     createTodo({
       value: inputRef.current?.value || "",

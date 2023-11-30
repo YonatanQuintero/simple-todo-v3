@@ -1,6 +1,7 @@
+import { FC } from "react"
 import ThemeToggle from "../theme/ThemeToggle"
 
-const TodoFooter = () => {
+const TodoFooter: FC = () => {
   return (
     <footer className="py-4 py-md-5 mt-5 bg-body-tertiary">
       <div className="container-fluid">
