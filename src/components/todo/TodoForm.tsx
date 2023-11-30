@@ -1,18 +1,9 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useRef } from "react"
 import { useCreateTodoMutation } from "../../api/todo-api"
 
 const TodoForm: React.FC = () => {
   const [createTodo] = useCreateTodoMutation()
   const inputRef = useRef<HTMLInputElement>(null)
-  const [isCompleted, setIsCompleted] = useState<boolean>(false)
-
-  useEffect(() => {
-    if (isCompleted) {
-      inputRef.current!.focus()
-      inputRef.current!.value = ""
-      setIsCompleted(false)
-    }
-  }, [isCompleted])
 
   const addHandler = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault()
@@ -20,7 +11,8 @@ const TodoForm: React.FC = () => {
       value: inputRef.current?.value || "",
       completed: false,
     })
-    setIsCompleted(true)
+    inputRef.current!.focus()
+    inputRef.current!.value = ""
   }
 
   return (

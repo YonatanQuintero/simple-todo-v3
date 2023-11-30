@@ -6,7 +6,7 @@ const TodoList = () => {
   return (
     <ul className="list-group">
       {data.map((todo) => (
-        <TodoListItem key={todo.id} id={todo.id} value={todo.value} />
+        <TodoListItem key={todo.id} id={todo.id || 0} value={todo.value} />
       ))}
     </ul>
   )
